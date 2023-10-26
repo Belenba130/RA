@@ -31,9 +31,6 @@ nav {
 
 header {
     position: relative;
-    background: url(./anh/slider1.jpg);
-    background-size: cover;
-    height: 800px;
 }
 
 
@@ -45,24 +42,49 @@ header {
     background-color: black;
     /* width: 1200px; */
 }
-
-ul {
+.box1-img>img{
+    width: 1600px ;
+}
+.menu {
     display: flex;
     list-style: none;
-
 }
 
-a {
+.menu>li {
+    position: relative;
+    padding: 0px 20px;
+    margin: 12px 0px;
+    display: inline-block;
+}
+
+.menu>li>a {
     text-decoration: none;
     color: white;
     font-size: larger;
 }
-/* a :hover{
+
+.Submenu {
+    list-style: none;
+    display: none;
+    position: absolute;
+}
+
+.Submenu>li {
+    margin: 15px auto;
+}
+
+.Submenu>li>a {
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+}
+
+.menu li:hover .Submenu {
+    display: block;
+}
+
+.menu li a:hover {
     color: red;
-} */
-li {
-    padding: 0px 20px;
-    margin: 12px 0px;
 }
 
 i {
@@ -86,7 +108,6 @@ i {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 800px;
 }
 
 .box2-title {
@@ -110,6 +131,7 @@ i {
     width: 800px;
     margin-top: 50px;
     text-align: center;
+    margin-bottom: 60px;
 }
 
 .box2-img-ten {
@@ -119,94 +141,118 @@ i {
 .box2-img>.box2-img-item>img {
     border-radius: 4px;
 }
-.container2{
+
+.container2 {
     background-color: black;
     display: flex;
     justify-content: center;
-    height: 800px;
+
 }
+
 .box3 {
     background-color: black;
     color: white;
     width: 800px;
 }
+
 .box3-header {
     text-align: center;
     padding-top: 40px;
 }
-.box3-header-title{
+
+.box3-header-title {
     margin-bottom: 30px;
 }
-.box3-calendar{
+
+.box3-calendar {
     justify-content: center;
     margin-top: 30px;
     margin-bottom: 50px;
 }
-.box3-calendar>p{
+
+.box3-calendar>p {
     border: solid 1px;
-    border-color:rgb(187, 181, 187);
-    /* width: 700px; */
+    border-color: rgb(187, 181, 187);
     height: 40px;
     padding-top: 10px;
     padding-left: 20px;
-    color:rgb(178, 183, 187) ;
+    color: rgb(178, 183, 187);
     background-color: white;
 }
-.box3-item{
+
+.box3-item {
     background-color: black;
     display: flex;
     justify-content: space-between;
     color: black;
 }
+
 .box3-item-img {
     width: 250px;
     background-color: white;
+    margin-bottom: 60px;
 }
-.box3-item-img>img{
+
+.box3-item-img>img {
     width: 250px;
 }
-.box3-item-img>p{
+
+.box3-item-img>p {
     margin: 10px;
 }
-.box3-item-img>button{
+
+.box3-item-img>button {
     margin: 10px;
     height: 30px;
     width: 90px;
     color: rgb(223, 233, 240);
     background-color: black;
 }
-footer{
-    height: 1100px;
-    
-}
-.footer-header>h3{
+
+.footer-header>h3 {
     font-size: 40px;
     margin-bottom: 30px;
 }
-.footer-item{
+
+.footer-item {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-.footer-header{
+
+.footer-header {
     text-align: center;
     margin: 40px 0px;
 }
-.footer-item1{
+
+.footer-item1 {
     margin-bottom: 50px;
     margin-left: 100px;
 }
-    footer>img{
+.footer-item1>p{
+    margin-top: 5px;
+}
+.footer-item2{
+    display: flex;
+    flex-direction: column;
+}
+.footer-item2-up{
+    margin-bottom: 5px;
+}
+.footer-item2>button{
+    margin-left: 285px;
+}
+footer>img {
     width: 1520px;
     margin-top: 90px;
-    height: 700px;
 }
-.last{
+
+.last {
     text-align: center;
-    color:rgb(187, 181, 187) ;
-    height: 150px;
+    color: rgb(187, 181, 187);
 }
-.last>p>i{
+
+.last>p>i {
     width: 30px;
     padding: 20px 10px;
     font-size: 25px;
