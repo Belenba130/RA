@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>ユーザ管理</title>
+</head>
+<body>
+    <div class="form-user">
+        <h3>会員情報</h3>
+        <label>氏名</label>
+        <input type="text" class="input" id="fullname">
+        <br>
+        <label>性別</label>
+        <input type="radio" name="male" id="male" value="1" checked>男
+        <input type="radio" name="female" id="female" value="1">女
+        <br>
+        <label>グループ</label>
+        <input type="text" class="input" id="group">
+        <br>
+        <label>メールアドレス</label>
+        <input type="text" class="input" id="mail">
+        <br>
+        <label>電話番号</label>
+        <input type="text" class="input" id="telnumber">
+        <br>
+        <label>日本語能力 </label>
+        <input type="text" class="input" id="japanlevel">
+        <br>
+        <label>点数</label>
+        <input type="text" class="input" id="marks">
+        <br>
+        <label>&nbsp;</label>
+        <input type="button" class="btn" id="submit" value="登録">
+        <br>
+    </div>
+
+    <div class="list-user">
+        <h3>会員情報一覧</h3>
+        <table class="list" width="600px" border="1" cellpadding ="0" cellspacing="0" >
+            <tr>
+                <td style="width: 30px;">ID</td>
+                <td style="padding: 20px;">氏名</td>
+                <td>性別</td>
+                <td>グループ</td>
+                <td>メールアドレス</td>
+                <td>電話番号</td>
+                <td>日本語能力</td>
+                <td>点数</td>
+                <td>アクション</td>
+            </tr>
+
+        </table>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
