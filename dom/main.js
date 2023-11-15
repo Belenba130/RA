@@ -43,7 +43,7 @@ function displayUsers() {
 const submitBtn = document.getElementById('submit');
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
-    const form = document.getElementsByClassName('form-user');
+    const form = document.getElementsByClassName('form-user')[0];
     const fullName = document.getElementById('fullname').value;
     const gender = document.querySelector('input[type="radio"]:checked').value;
     const group = document.getElementById('group').value;
@@ -103,13 +103,14 @@ submitBtn.addEventListener("click", function (event) {
     }
 
     if (diverr.children.length > 0) {
+       
         diverr.id = 'error-container';
         form.appendChild(diverr);
     } else {
         addUser('key', data);
         displayUsers();  
     }
-    window.location.reload();
+    // window.location.reload();
 });
 window.onload = function () {
     displayUsers();
