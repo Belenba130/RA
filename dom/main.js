@@ -12,6 +12,9 @@ function getUser(key) {
 function displayUsers() {
     const usersTable = document.querySelector('.list');
     const users = getUser('key');
+    while (usersTable.rows.length > 1) {
+        usersTable.deleteRow(1);
+    }
     users.forEach((user, index) => {
         const newRow = usersTable.insertRow();
         newRow.innerHTML = `
@@ -28,18 +31,27 @@ function displayUsers() {
             </tr>
         `;
     })
-    }
-    function deleteUser(index) {
-        const confirmed = confirm('この行を削除しますか？');
-        if (confirmed) {
-            let users = getUser('key');
+}
+function deleteUser(index) {
+    const usersTable = document.querySelector('.list');
+    const confirmed = confirm('この行を削除しますか？');
+    if (confirmed) {
+
+        let users = getUser('key');
+        if (users.length > 1) {
             users.splice(index, 1);
             localStorage.setItem('key', JSON.stringify(users));
             let usersTable = document.querySelector('.list');
-            usersTable.deleteRow(index+1) 
-            displayUsers();  
+            usersTable.deleteRow(index)
+            displayUsers();
+        } else {
+            localStorage.clear();
+            displayUsers();
+
         }
-    };
+
+    }
+};
 const submitBtn = document.getElementById('submit');
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
@@ -103,16 +115,15 @@ submitBtn.addEventListener("click", function (event) {
     }
 
     if (diverr.children.length > 0) {
-       
+
         diverr.id = 'error-container';
         form.appendChild(diverr);
     } else {
         addUser('key', data);
-        displayUsers();  
+        displayUsers();
     }
     // window.location.reload();
 });
 window.onload = function () {
     displayUsers();
 }
-
