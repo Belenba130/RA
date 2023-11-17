@@ -42,7 +42,7 @@ function deleteUser(index) {
             users.splice(index, 1);
             localStorage.setItem('key', JSON.stringify(users));
             let usersTable = document.querySelector('.list');
-            usersTable.deleteRow(index)
+            usersTable.deleteRow(index+1)
             displayUsers();
         } else {
             localStorage.clear();
