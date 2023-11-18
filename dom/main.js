@@ -42,7 +42,7 @@ function deleteUser(index) {
             users.splice(index, 1);
             localStorage.setItem('key', JSON.stringify(users));
             let usersTable = document.querySelector('.list');
-            usersTable.deleteRow(index+1)
+            usersTable.deleteRow(index + 1)
             displayUsers();
         } else {
             localStorage.clear();
@@ -75,55 +75,71 @@ submitBtn.addEventListener("click", function (event) {
         mark: mark,
     };
 
-    var diverr = document.createElement('div');
-    diverr.style.color = 'red';
+    const nameFail = document.getElementById('IDFail');
+    const genderFail = document.getElementById('genderFail');
+    const groupFail = document.getElementById('groupFail');
+    const mailFail = document.getElementById('mailFail');
+    const phoneFail = document.getElementById('phoneFail');
+    const markFail = document.getElementById('markFail');
+    nameFail.innerHTML = "";
+    genderFail.innerHTML = "";
+    groupFail.innerHTML = "";
+    mailFail.innerHTML = "";
+    phoneFail.innerHTML = "";
+    markFail.innerHTML = "";
 
     if (data.name === "") {
-        var nameerr = document.createElement('p');
+        var nameerr = document.createElement('div');
         nameerr.innerHTML = " 氏名を入力して";
-        diverr.appendChild(nameerr);
+        nameFail.style.color="red";
+        nameFail.appendChild(nameerr);
     }
     if (data.gender === "") {
-        var gendererr = document.createElement('p');
+        var gendererr = document.createElement('div');
         gendererr.innerHTML = "性別を選択して";
-        diverr.appendChild(gendererr);
+        genderFail.style.color="red";
+        genderFail.appendChild(gendererr);
     }
     if (data.group === "") {
-        var grouperr = document.createElement('p');
+        var grouperr = document.createElement('div');
         grouperr.innerHTML = "グループを入力して";
-        diverr.appendChild(grouperr);
+        groupFail.style.color="red";
+        groupFail.appendChild(grouperr);
     }
     if (!mailRegex.test(data.mail) || data.mail === "") {
-        var mailerr = document.createElement('p');
+        var mailerr = document.createElement('div');
         mailerr.innerHTML = "「メール」を正しいに入力して。";
-        diverr.appendChild(mailerr);
+        mailFail.style.color="red";
+        mailFail.appendChild(mailerr);
     }
     if (!phoneRegex.test(data.phone) || data.phone === "") {
-        var phoneerr = document.createElement('p');
+        var phoneerr = document.createElement('div');
         phoneerr.innerHTML = "「電話番号」を正しいに入力して。";
-        diverr.appendChild(phoneerr);
+        phoneFail.style.color="red";
+        phoneFail.appendChild(phoneerr);
     }
 
     if (data.mark > 180 || data.mark < 0 || data.mark === "") {
-        var markerr = document.createElement('p');
+        var markerr = document.createElement('div');
         markerr.innerHTML = "0 ~ 180 の「点数」を入力して。";
-        diverr.appendChild(markerr);
+        markFail.style.color="red";
+        markFail.appendChild(markerr);
     }
     var errorContainer = document.getElementById('error-container');
     if (errorContainer) {
         errorContainer.remove();
     }
 
-    if (diverr.children.length > 0) {
-
-        diverr.id = 'error-container';
-        form.appendChild(diverr);
-    } else {
+    if (nameFail.innerHTML === "" &&
+        genderFail.innerHTML === "" &&
+        groupFail.innerHTML === "" &&
+        mailFail.innerHTML === "" &&
+        phoneFail.innerHTML === "" &&
+        markFail.innerHTML === "") {
         addUser('key', data);
         displayUsers();
     }
-    // window.location.reload();
 });
 window.onload = function () {
-    displayUsers();
-}
+        displayUsers();
+    }
